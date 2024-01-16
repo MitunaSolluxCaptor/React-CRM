@@ -1,0 +1,8 @@
+﻿.left-navigate-container {
+    left: 0;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    width: 60px;
+    height: calc(100vh - 10px);
+    background-color: #ebeeef;
+}

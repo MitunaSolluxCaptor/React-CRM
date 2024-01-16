@@ -44,3 +44,7 @@
 body {
     background-color: #dbdbdb;
 }
+.main-frame {
+    display: flex;
+    flex-direction: row;
+}
