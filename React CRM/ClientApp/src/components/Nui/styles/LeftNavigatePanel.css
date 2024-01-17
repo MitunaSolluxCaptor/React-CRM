@@ -1,8 +1,128 @@
 ﻿.left-navigate-container {
-    left: 0;
+    width: 200px;
+}
+    .left-navigate-container > div > .menu-item-container {
+        display: flex;
+        flex-direction: row;
+    }
+.short-left-navigate-container {
+    width: 60px;
+}
+.navigate-container {
+    position: relative;
     margin-top: 5px;
     margin-bottom: 5px;
-    width: 60px;
     height: calc(100vh - 10px);
-    background-color: #ebeeef;
+    background-color: #0D2E4E;
+}
+
+.navigate-menu-header {
+    display: flex;
+    flex-direction: column;
+}
+.navigate-menu-toolbar {
+    display: flex;
+    flex-direction: row-reverse;
+}
+.switch-menu-mod {
+    margin-right: 0%;
+    background-image: url("../Img/collapseIconSvg.svg");
+    width: 60px;
+    height: 60px;
+    background-color: #0D2E4E;
+    border: none;
+}
+
+    .switch-menu-mod:hover {
+        background-color: #1A4580;
+    }
+
+.reverse {
+    transform: scaleX(-1);
+}
+.workspace-container {
+    width: 100%;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 1px inset white;
+    border-top: 1px inset white;
+}
+.workspace-active-container {
+    border: 1px inset white;
+}
+.workspace-placeholder > label {
+    font-size: 1.15em;
+    color: white;
+}
+.workspace-menu {
+    margin-top: 125px;
+    position: absolute;
+    width: 100%;
+    height: auto;
+    max-height: calc(100% - 125px);
+    left: 0;
+    top: 0;
+    z-index: 0;
+    overflow-y: auto;
+    overflow-x: clip;
+    background-color: white;
+    border-radius: 5px;
+}
+.workspace-item{
+    margin: 10px;
+}
+    .workspace-item > label {
+        display: flex;
+        align-items: center;
+        margin-left: auto;
+        margin-right: auto;
+        justify-content: center;
+        font-family: Bpmonline Open Sans;
+        font-weight: 500;
+        font-size: 18px;
+        color: black;
+        cursor: pointer;
+    }
+
+.navigate-menu-body {
+    overflow-y: auto;
+    overflow-x: clip;
+    max-height: calc(100vh - 75px);
+}
+.navigate-menu-body-short {
+    max-height: calc(100vh - 135px);
+}
+
+.menu-item-container {
+    cursor: pointer;
+}
+    .menu-item-container:hover {
+        background-color: #0A253F;
+    }
+.menu-item-image {
+    background-image: url("../Img/MenuImage.svg");
+    width: 60px;
+    height: 60px;
+}
+.menu-item-content {
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+    justify-content: center;
+    font-family: Bpmonline Open Sans;
+    font-weight: 500;
+    font-size: 18px;
+    color: white;
+}
+
+*::-webkit-scrollbar {
+    width: 10px;
+    height: 5px;
+}
+
+*::-webkit-scrollbar-thumb {
+    background-color: #0A253F;
 }

@@ -1,3 +1,10 @@
+.main {
+    display: flex;
+    flex-direction: row-reverse;
+}
+*::-webkit-scrollbar-thumb{
+    width: 2px;
+}
 .input {
     min-width: 250px;
     min-height: 30px;
@@ -47,4 +54,5 @@ body {
 .main-frame {
     display: flex;
     flex-direction: row;
+    width: 100%;
 }

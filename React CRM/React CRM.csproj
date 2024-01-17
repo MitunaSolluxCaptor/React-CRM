@@ -29,6 +29,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="ClientApp\src\components\Nui\Img\" />
     <Folder Include="Pages\" />
   </ItemGroup>
 

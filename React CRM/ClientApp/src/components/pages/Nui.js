@@ -1,4 +1,5 @@
 ﻿import LeftNavigatePanel from "../Nui/LeftNavigatePanel";
+import MainFrame from "../Nui/MainFrame";
 import RightPanel from "../Nui/RightPanel";
 
 function Nui() {
@@ -6,17 +7,13 @@ function Nui() {
         window.location = "https://localhost:44416/login";
     } else {
         return (
-            <>
+            <div className="main">
                 <RightPanel />
                 <div className="main-frame">
                     <LeftNavigatePanel />
-                    123
-                    <button onClick={function () {
-                        localStorage.setItem("IsAuthenticated", false);
-                        window.location = "https://localhost:44416/login";
-                        }}>Выйти</button>
+                    <MainFrame />
                 </div>
-            </>
+            </div>
         );
     }
 }
