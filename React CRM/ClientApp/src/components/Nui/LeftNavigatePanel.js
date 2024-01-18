@@ -2,7 +2,47 @@
 import "./styles/LeftNavigatePanel.css"
 
 function LeftNavigatePanel() {
+
+    const menuConfig = [
+        {
+            name: "Администратор",
+            sections: [
+                {
+                    name: "Контакты",
+                    href: ""
+                },
+                {
+                    name: "Контрагенты",
+                    href: "https://localhost:44416/Nui/AccountSection"
+                },
+                {
+                    name: "Обращения",
+                    href: ""
+                },
+                {
+                    name: "Заказы",
+                    href: ""
+                }
+            ]
+        },
+        {
+            name: "Общее",
+            sections: [
+                {
+                    name: "Обращения",
+                    href: ""
+                },
+                {
+                    name: "Заказы",
+                    href: ""
+                }
+            ]
+        }
+    ];
+
     const [isFullMod, switchMode] = useState(false);
+    const [selectedWorkspace, setWorkspace] = useState(menuConfig[0]);
+
     let containerClassName = "short-left-navigate-container navigate-container";
     let buttonClassName = "switch-menu-mod";
     let bodyClassName = "navigate-menu-body";
@@ -20,10 +60,10 @@ function LeftNavigatePanel() {
                             <button className={buttonClassName} onClick={() => switchMode((m) => !m)}></button>
                         </div>
                     </div>
-                    <Workspace isFullMod={isFullMod} />
+                    <Workspace menuConfig={menuConfig} setWorkspace={setWorkspace} isFullMod={isFullMod} />
                 </div>
                 <div className={bodyClassName}>
-                    <Menu buttonCount="5" isFullMod={isFullMod} />
+                    <Menu selectedWorkspace={selectedWorkspace} isFullMod={isFullMod} />
                 </div>
             </div>
         </>
@@ -32,18 +72,16 @@ function LeftNavigatePanel() {
 
 export default LeftNavigatePanel;
 
-function Workspace({ isFullMod }) {
+function Workspace({ menuConfig, setWorkspace, isFullMod }) {
 
     const [isOpen, setIsOpen] = useState(false);
+    const [workspaceConfig, setWorkspaceConfig] = useState(menuConfig[0]);
+    useEffect(() => {
+        setWorkspace(workspaceConfig);
+    });
 
     if (!isFullMod) return;
 
-    let placeholderLabel = "holder";
-
-    let menu = [];
-    for (let i = 0; i < 5; i++) {
-        menu.push(<WorkspaceItem />);
-    }
 
     let containerClassName = "workspace-container";
     if (isOpen)
@@ -55,13 +93,13 @@ function Workspace({ isFullMod }) {
     return (
         <div className={containerClassName} >
             <div className="workspace-placeholder" onClick={() => setIsOpen((v) => !v)}>
-                <label>{placeholderLabel}</label>
+                <label>{workspaceConfig.name}</label>
             </div>
-            <WorkspaceMenu isOpen={isOpen} onClose={onClose} />
+            <WorkspaceMenu isOpen={isOpen} onClose={onClose} menuConfig={menuConfig} setWorkspaceConfig={setWorkspaceConfig} />
         </div>
     );
 }
-function WorkspaceMenu({ isOpen, onClose }) {
+function WorkspaceMenu({ isOpen, onClose, menuConfig, setWorkspaceConfig }) {
     const menuRef = useRef(null);
     useEffect(() => {
         if (!isOpen) return;
@@ -80,8 +118,13 @@ function WorkspaceMenu({ isOpen, onClose }) {
     if (!isOpen) return null;
 
     let items = [];
-    for (let i = 0; i < 5; i++) {
-        items.push(<WorkspaceItem key={i} itemTitle={"Some Workspace " + (i + 1)} />);
+    for (let i = 0; i < menuConfig.length; i++) {
+        items.push(<WorkspaceItem
+            key={i}
+            itemConfig={menuConfig[i]}
+            setWorkspaceConfig={setWorkspaceConfig}
+            onClose={onClose}
+        />);
     }
 
     return (
@@ -91,11 +134,17 @@ function WorkspaceMenu({ isOpen, onClose }) {
     );
 }
 
-function WorkspaceItem(props) {
+function WorkspaceItem({ itemConfig, setWorkspaceConfig, onClose }) {
+
+    const onClick = () => {
+        setWorkspaceConfig(itemConfig);
+        onClose();
+    }
+
     return (
         <>
-            <div className="workspace-item">
-                <label>{props.itemTitle}</label>
+            <div className="workspace-item" onClick={onClick}>
+                <label onClick={onClick}>{itemConfig.name}</label>
             </div>
         </>
     );
@@ -108,8 +157,12 @@ class Menu extends Component {
     };
     render() {
         let menu = [];
-        for (let i = 0; i < this.props.buttonCount; i++) {
-            menu.push(<MenuItem key={i} itemKey={i} isFullMod={this.props.isFullMod} />);
+        for (let i = 0; i < this.props.selectedWorkspace.sections.length; i++) {
+            menu.push(<MenuItem
+                key={i}
+                itemConfig={this.props.selectedWorkspace.sections[i]}
+                isFullMod={this.props.isFullMod}
+            />);
         }
         return (
         <>
@@ -119,18 +172,18 @@ class Menu extends Component {
     };
 }
 
-function MenuItem(props) {
-    let content = "";
-    if (props.isFullMod)
-        content = "Menu item " + (props.itemKey + 1);
+function MenuItem({ itemConfig, isFullMod }) {
+    const menuItem = [];
+    menuItem.push(<div key="0" className="menu-item-image" ></div >);
 
-    if(props)
-        return (
-            <>
-                <div className="menu-item-container">
-                    <div className="menu-item-image"></div>
-                    <div className="menu-item-content">{content}</div>
-                </div>
-            </>
-        );
+    if (isFullMod)
+        menuItem.push(<div key="1" className="menu-item-content" > {itemConfig.name}</div >);
+
+    return (
+        <>
+            <div className="menu-item-container" onClick={() => { if (itemConfig.href && itemConfig.href !== "") window.location = itemConfig.href; }}>
+                {menuItem}
+            </div>
+        </>
+    );
 };

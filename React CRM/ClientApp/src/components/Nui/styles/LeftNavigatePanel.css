@@ -4,6 +4,7 @@
     .left-navigate-container > div > .menu-item-container {
         display: flex;
         flex-direction: row;
+        width: auto;
     }
 .short-left-navigate-container {
     width: 60px;
@@ -12,7 +13,7 @@
     position: relative;
     margin-top: 5px;
     margin-bottom: 5px;
-    height: calc(100vh - 10px);
+    height: calc(100vh - 11px);
     background-color: #0D2E4E;
 }
 
@@ -96,20 +97,25 @@
 }
 
 .menu-item-container {
+    display: flex;
     cursor: pointer;
+    height: 60px;
+    width: 60px;
+    justify-content: center;
+    align-items: center;
 }
     .menu-item-container:hover {
         background-color: #0A253F;
     }
 .menu-item-image {
     background-image: url("../Img/MenuImage.svg");
-    width: 60px;
-    height: 60px;
+    margin: 10px;
+    width: 40px;
+    height: 40px;
 }
 .menu-item-content {
     display: flex;
     align-items: center;
-    margin-left: auto;
     margin-right: auto;
     justify-content: center;
     font-family: Bpmonline Open Sans;
