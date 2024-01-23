@@ -15,10 +15,16 @@ namespace React_CRM.Classes.Db
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<User>().HasData(
-                    new User { Id = 1, Name = "Tom", Age = 37, Login = "Login", Password = "Password" },
-                    new User { Id = 2, Name = "Bob", Age = 41 },
-                    new User { Id = 3, Name = "Sam", Age = 24 }
+                    new User { Id = new Guid(), Name = "Tom", Age = 37, Login = "Login", Password = "Password" },
+                    new User { Id = new Guid(), Name = "Bob", Age = 41 },
+                    new User { Id = new Guid(), Name = "Sam", Age = 24 }
             );
+            /*modelBuilder.Entity<SysProfileData>().HasData(
+                new SysProfileData { Id = new Guid(), Key = "AccountSectionGrid", ObjectData = "", User = Guid.Empty }
+            );
+            modelBuilder.Entity<Account>().HasData(
+                new Account { Id = new Guid(), Name = "Our Company", Phone = "+78005553535", Code = "700" }
+            );*/
         }
     }
 }

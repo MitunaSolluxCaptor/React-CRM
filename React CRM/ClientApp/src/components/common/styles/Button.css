@@ -1,0 +1,30 @@
+﻿.button {
+    background: none !important;
+    border-radius: 5px;
+    margin-top: 20px;
+    min-width: 80px;
+    height: 35px;
+    font-family: Bpmonline Open Sans;
+    font-weight: 500;
+    font-size: 18px;
+    color: #4e7bd8 !important;
+    border: 0;
+    width: auto !important;
+}
+    .button:hover {
+        background: white !important;
+    }
+.green-button {
+    background: #22ac14 !important;
+    color: white !important;
+}
+    .green-button:hover {
+        background: #1C9110 !important;
+    }
+.blue-button {
+    background: #006CE0 !important;
+    color: white !important;
+}
+    .blue-button:hover {
+        background: #0258B5 !important;
+    }

@@ -2,7 +2,6 @@
 import "./styles/LeftNavigatePanel.css"
 
 function LeftNavigatePanel() {
-
     const menuConfig = [
         {
             name: "Администратор",

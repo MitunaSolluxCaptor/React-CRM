@@ -1,0 +1,10 @@
+﻿.menu {
+    position: absolute;
+    top: 100%;
+    font-size: 18px;
+}
+    .menu > div > div {
+        margin-top: 5px;
+        font-size: 18px;
+        cursor: pointer;
+    }

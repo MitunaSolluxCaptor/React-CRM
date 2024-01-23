@@ -28,6 +28,7 @@
     right: 0;
     position: fixed;
     margin-right: 1px;
+    z-index: 1;
 }
 
 .clicable {

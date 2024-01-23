@@ -1,4 +1,5 @@
 ﻿import { useState } from "react";
+import Button from "../common/Button";
 import Menu from "../common/Menu";
 import "./styles/SectionHeader.css"
 
@@ -24,16 +25,23 @@ function SectionHeader() {
     menuConfig.onClose = onClose;
     menuConfig.setChose = setItemConfig;
 
+    const buttonConfig = {
+        name: "Добавить контрагент",
+        classes:"button add-button green-button"
+    };
+
     return (
         <div className="header-container">
             <div className="right-header-section">
                 <label className="section-caption">Контрагенты</label>
                 <div className="action-container">
-                    <button className="button add-button">Добавить контрагент</button>
+                    <Button buttonConfig={buttonConfig} />
                     <div className="section-action-caption" onClick={() => setIsOpen((v) => !v)}>
-                        <label>name</label>
+                        <label className="section-action-lable">Действия
+                            <span className="button-wraper"></span>
+                        </label>
+                        <Menu menuConfig={menuConfig} />
                     </div>
-                    <Menu menuConfig={menuConfig} />
                 </div>
             </div>
             <div className="middle-header-section"></div>

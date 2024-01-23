@@ -1,9 +1,11 @@
-﻿import SectionHeader from "../Section/SectionHeader";
+﻿import SectionBody from "../Section/SectionBody";
+import SectionHeader from "../Section/SectionHeader";
 
 function AccountSection() {
     return (
         <>
             <SectionHeader />
+            <SectionBody />
         </>
     );
 

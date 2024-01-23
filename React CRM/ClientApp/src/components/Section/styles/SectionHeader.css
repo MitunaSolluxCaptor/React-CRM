@@ -10,15 +10,41 @@
     font-family: Bpmonline Open Sans Light;
     color: #444167;
 }
-.add-button{
+.add-button {
     width: auto !important;
+    margin-top: auto !important;
+    margin-bottom: auto;
 }
-.action-container{
+.action-container {
     position: relative;
+    top: 100%;
     display: flex;
     flex-direction: row;
     margin-left: 20px;
+    margin-top: 20px;
 }
 .section-action-caption {
+    position: relative;
+    margin-top: auto;
+    margin-bottom: auto;
     margin-left: 20px;
+}
+.section-action-caption > label{
+    font-size: 18px;
+}
+.section-action-lable {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    color: #4d6a98;
+}
+.button-wraper {
+    margin-left: 3px;
+    border-top: 0.32em solid #4d6a98;
+    border-right: 0.32em solid transparent;
+    border-left: 0.32em solid transparent;
+}
+.menu {
+    background-color: white;
+    width: 100%;
 }

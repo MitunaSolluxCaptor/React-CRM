@@ -1,4 +1,5 @@
 ﻿import { useEffect, useRef } from "react";
+import "./styles/Menu.css"
 
 function Menu({ menuConfig }) {
 
@@ -28,16 +29,16 @@ function Menu({ menuConfig }) {
     for (let i = 0; i < menuConfig.items.length; i++) {
         menu.push(<MenuItem
             key={i}
-            className={menuConfig.className}
+            className = {menuConfig.className }
             itemConfig={menuConfig.items[i]}
             onClose={onClose}
             setChose={setChose}
         />);
     }
     return (
-        <>
+        <div ref={menuRef} className="menu">
             {menu}
-        </>
+        </div>
     );
 }
 

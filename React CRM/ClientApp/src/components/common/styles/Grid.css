@@ -1,0 +1,39 @@
+﻿.grid-caption {
+    border-bottom: 1px inset #999999;
+    margin: 0 10px 0 10px;
+}
+.grid-caption, .data-item {
+    display: flex;
+}
+.grid-caption-item {
+    color: #999999;
+    cursor: pointer;
+    margin-left: 5px;
+}
+.data-item {
+    flex-direction: column;
+    margin: 0 10px 0 10px;
+    min-height: 40px;
+}
+.gray-data-item {
+    background-color: #f7f7f7;
+}
+.selected-item {
+    background-color: #E4EBFA;
+}
+.grid-record {
+    display: flex;
+    flex-direction: row;
+}
+.grid-caption-item, .grid-cell {
+    width: 15%;
+}
+.grid-cell {
+    margin: auto 0 auto 5px;
+}
+.item-grid-toolbar{
+    margin: 10px;
+}
+    .item-grid-toolbar > button {
+        margin-right: 5px;
+    }
