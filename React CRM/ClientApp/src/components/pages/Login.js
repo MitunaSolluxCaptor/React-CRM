@@ -8,7 +8,10 @@ function LoginPanel(props) {
     const login = useRef(null);
     const password = useRef(null);
 
-    const submit = async () => {
+    const submit = async (event) => {
+
+        if (event && event.keyCode !== 13) return;
+
         const curLoggin = login.current.state.val;
         const curPassword = password.current.state.val;
 
@@ -47,13 +50,15 @@ function LoginPanel(props) {
         }
     }
 
+    document.addEventListener("keyup", submit);
+
     return (
         <div className="authorizate-panel">
             <div id="Logo" className="logo"></div>
             <Input valLable="Логин" ref={login} />
             <Input type="password" valLable="Пароль" ref={password} />
             <div>
-                <button className="button" onClick={submit}>{props.buttonLabel}</button>
+                <button className="button green-button" onClick={submit}>{props.buttonLabel}</button>
             </div>
         </div>
     );

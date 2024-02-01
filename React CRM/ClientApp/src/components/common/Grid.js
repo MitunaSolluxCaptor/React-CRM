@@ -71,6 +71,9 @@ function GridItem({ itemConfig }) {
             itemConfig.selectItem(itemConfig);
         }
     }
+    const open = () => {
+        console.log("Double click on item "+ itemConfig.id +".")
+    }
 
     let gridItem = new Array();
     for (let i = 0; i < count.length; i++) {
@@ -78,7 +81,7 @@ function GridItem({ itemConfig }) {
     }
 
     return (
-        <div onClick={select} className={itemConfig.className}>
+        <div onDoubleClick={open} onClick={select} className={itemConfig.className}>
             <div className="grid-record">
                 {gridItem}
             </div>
