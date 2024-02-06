@@ -7,7 +7,9 @@ namespace React_CRM.Classes.Db.Data
         public BaseObject() {
             Id = Guid.NewGuid();
             CreatedOn = DateTime.Now;
+            CreatedById = Guid.Parse("410006e1-ca4e-4502-a9ec-e54d922d2c00");
             ModifiedOn = DateTime.Now;
+            ModifiedById = Guid.Parse("410006e1-ca4e-4502-a9ec-e54d922d2c00");
         }
 
         public Guid Id { get; set; }
@@ -17,30 +19,5 @@ namespace React_CRM.Classes.Db.Data
         public DateTime ModifiedOn { get; set; }
         public User ModifiedBy { get; set; }
         public Guid ModifiedById { get; set; }
-
-        public void Delete()
-        {
-            throw new NotImplementedException();
-        }
-
-        public IBaseObject FetchEntity(Guid id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public IBaseObject FetchEntity(Dictionary<string, object> condition)
-        {
-            throw new NotImplementedException();
-        }
-
-        public IEnumerable<IBaseObject> GetEntitysCollection()
-        {
-            throw new NotImplementedException();
-        }
-
-        public void Save()
-        {
-            throw new NotImplementedException();
-        }
     }
 }

@@ -10,7 +10,7 @@ function LoginPanel(props) {
 
     const submit = async (event) => {
 
-        if (event && event.keyCode !== 13) return;
+        if (event && event.keyCode && event.keyCode !== 13) return;
 
         const curLoggin = login.current.state.val;
         const curPassword = password.current.state.val;

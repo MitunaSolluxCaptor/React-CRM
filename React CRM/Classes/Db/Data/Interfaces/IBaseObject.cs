@@ -9,9 +9,5 @@ public interface IBaseObject
     public DateTime ModifiedOn { get; set; }
     public User ModifiedBy { get; set; }
     public Guid ModifiedById { get; set; }
-    public IEnumerable<IBaseObject> GetEntitysCollection(/*ESQ?*/);
-    public IBaseObject FetchEntity(Guid id);
-    public IBaseObject FetchEntity(Dictionary<string, object> condition);
-    public void Save();
-    public void Delete();
+    
 }
